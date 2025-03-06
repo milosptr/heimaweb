@@ -2,6 +2,7 @@ import React from 'react'
 import { Fade } from 'react-awesome-reveal'
 
 import type { HomeContentBlock as HomeContentBlockProps, Media } from '@/payload-types'
+import Image from 'next/image'
 
 export const HomeContentBlock: React.FC<HomeContentBlockProps> = (props) => {
   const { sections } = props
@@ -24,19 +25,17 @@ export const HomeContentBlock: React.FC<HomeContentBlockProps> = (props) => {
                     className={`w-full sm:w-1/12 mb-auto ${leftPositioned ? 'order-1 sm:order-1' : 'order-1 sm:order-3'}`}
                   >
                     {!!sideContentImage && (
-                      <img
+                      <Image
                         src={sideContentImage.url!}
                         alt={sideContentImage.alt ?? ''}
-                        width={'100%'}
                         className="absolute sm:relative top-10 right-0 w-[20%] sm:w-full"
                       />
                     )}
                   </div>
                   <div className={`w-full sm:w-5/12 order-2`}>
-                    <img
+                    <Image
                       src={contentImage.url!}
                       alt={contentImage?.alt ?? ''}
-                      width={'100%'}
                       className="w-[60%] sm:w-full"
                     />
                   </div>

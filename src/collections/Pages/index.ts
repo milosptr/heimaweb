@@ -20,7 +20,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { StoreButtons } from '@/blocks/StoreButtons/config'
 import { iFrame } from '@/blocks/iFrame/config'
-import { PremiumBox, PremiumBoxBlock } from '@/blocks/PremiumBox/config'
+import { PremiumBox } from '@/blocks/PremiumBox/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',

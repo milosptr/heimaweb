@@ -13,6 +13,8 @@ interface HeaderClientProps {
   currentPath?: string
 }
 
+// @typescript-eslint/no-explicit-any Ignore this rule because it's a type utility
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Flatten<T> = T extends any[] ? T[number] : T
 type FlattenHeaderNavItems = Flatten<Header['navItems']>
 type HeaderNavItem = NonNullable<FlattenHeaderNavItems>

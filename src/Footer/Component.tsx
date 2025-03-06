@@ -7,6 +7,7 @@ import type { Footer, Media } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import { Logo } from '@/components/Logo/Logo'
 import { Fade } from 'react-awesome-reveal'
+import Image from 'next/image'
 
 export async function Footer() {
   const footerData: Footer = await getCachedGlobal('footer', 1)()
@@ -20,7 +21,7 @@ export async function Footer() {
       {!!image && (
         <Fade triggerOnce delay={300} fraction={0.5}>
           <div className="flex justify-center mb-10">
-            <img src={image.url!} alt={image.alt!} className="h-[40vh] sm:h-[60vh]" />
+            <Image src={image.url!} alt={image.alt!} className="h-[40vh] sm:h-[60vh]" />
           </div>
         </Fade>
       )}
@@ -47,7 +48,7 @@ export async function Footer() {
               <div className="flex gap-5 mb-3">
                 {socials?.map((social, i) => (
                   <Link key={i} href={social.link}>
-                    <img
+                    <Image
                       src={`/socials/${social.platform}.svg`}
                       alt={social.platform}
                       width={30}

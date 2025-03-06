@@ -3,6 +3,7 @@ import React from 'react'
 import type { Media, Page } from '@/payload-types'
 import { Fade } from 'react-awesome-reveal'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
+import Image from 'next/image'
 
 export const RenderHero: React.FC<Page['hero']> = (props) => {
   const { heading, description, image, StoreButtons } = props || {}
@@ -27,10 +28,9 @@ export const RenderHero: React.FC<Page['hero']> = (props) => {
           </div>
           <div className="flex justify-start sm:justify-end order-1 sm:order-2">
             {!!hasImage && (
-              <img
+              <Image
                 src={heroImage.url!}
                 alt={heroImage.alt ?? ''}
-                width={'90%'}
                 className="w-[60%] sm:w-[90%]"
               />
             )}
