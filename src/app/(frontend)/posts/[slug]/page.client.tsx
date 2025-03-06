@@ -7,6 +7,13 @@ const PageClient: React.FC = () => {
   const { setHeaderTheme } = useHeaderTheme()
 
   useEffect(() => {
+    scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }, [])
+
+  useEffect(() => {
     setHeaderTheme('dark')
   }, [setHeaderTheme])
   return <React.Fragment />

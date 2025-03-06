@@ -28,11 +28,11 @@ export default async function Page() {
   })
 
   return (
-    <div className="pt-24 pb-24">
+    <div className="py-4 sm:py-16">
       <PageClient />
-      <div className="container mb-16">
+      <div className="container mb-10">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+          <h1 className="text-foreground font-bold">Blog posts</h1>
         </div>
       </div>
 
@@ -42,6 +42,7 @@ export default async function Page() {
           currentPage={posts.page}
           limit={12}
           totalDocs={posts.totalDocs}
+          className="text-foreground"
         />
       </div>
 

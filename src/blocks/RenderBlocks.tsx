@@ -2,18 +2,20 @@ import React, { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
 
-import { ArchiveBlock } from '@/blocks/ArchiveBlock/Component'
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
+import { HomeContentBlock } from '@/blocks/ContentHomepage/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
-import { FormBlock } from '@/blocks/Form/Component'
-import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { StoreButtonsBlock } from './StoreButtons/Component'
+import { MarkdownBlock } from './Markdown/Component'
+import { IFrameBlock } from './iFrame/Component'
+import { PremiumBoxBlock } from './PremiumBox/Component'
 
 const blockComponents = {
-  archive: ArchiveBlock,
   content: ContentBlock,
-  cta: CallToActionBlock,
-  formBlock: FormBlock,
-  mediaBlock: MediaBlock,
+  markdown: MarkdownBlock,
+  contentHomepage: HomeContentBlock,
+  iframe: IFrameBlock,
+  storeButtons: StoreButtonsBlock,
+  premiumBox: PremiumBoxBlock,
 }
 
 export const RenderBlocks: React.FC<{
@@ -34,10 +36,10 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div className="my-16" key={index}>
+                <Fragment key={index}>
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block {...block} disableInnerContainer />
-                </div>
+                </Fragment>
               )
             }
           }

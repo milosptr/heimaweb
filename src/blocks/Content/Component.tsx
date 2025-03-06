@@ -1,43 +1,28 @@
-import { cn } from '@/utilities/ui'
 import React from 'react'
-import RichText from '@/components/RichText'
+import { Fade } from 'react-awesome-reveal'
 
 import type { ContentBlock as ContentBlockProps } from '@/payload-types'
-
-import { CMSLink } from '../../components/Link'
+import { RichText } from '@payloadcms/richtext-lexical/react'
 
 export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
-  const { columns } = props
-
-  const colsSpanClasses = {
-    full: '12',
-    half: '6',
-    oneThird: '4',
-    twoThirds: '8',
-  }
+  const { sections } = props
 
   return (
-    <div className="container my-16">
-      <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-16">
-        {columns &&
-          columns.length > 0 &&
-          columns.map((col, index) => {
-            const { enableLink, link, richText, size } = col
+    <div>
+      <Fade delay={300} fraction={0.5} triggerOnce>
+        {sections &&
+          sections.length > 0 &&
+          sections.map((section, index) => {
+            const { heading, sectionContent } = section
 
             return (
-              <div
-                className={cn(`col-span-4 lg:col-span-${colsSpanClasses[size!]}`, {
-                  'md:col-span-2': size !== 'full',
-                })}
-                key={index}
-              >
-                {richText && <RichText data={richText} enableGutter={false} />}
-
-                {enableLink && <CMSLink {...link} />}
+              <div key={index} className="container">
+                {!!heading && <h2>{heading}</h2>}
+                <RichText className="RichText mt-6 lg:mt-8" data={sectionContent} />
               </div>
             )
           })}
-      </div>
+      </Fade>
     </div>
   )
 }

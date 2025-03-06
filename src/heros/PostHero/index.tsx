@@ -42,7 +42,7 @@ export const PostHero: React.FC<{
             <h1 className="mb-6 text-3xl md:text-5xl lg:text-6xl">{title}</h1>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-4 md:gap-16">
+          <div className="flex flex-row justify-between sm:justify-start gap-4 md:gap-16 pb-4 sm:pb-0">
             {hasAuthors && (
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">

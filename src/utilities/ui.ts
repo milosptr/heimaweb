@@ -10,3 +10,6 @@ import { twMerge } from 'tailwind-merge'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+
+export const getScrollStyles =
+  'html{scroll-behavior:smooth;scroll-snap-type:y mandatory;overflow-y:scroll}.h-screen{height:100vh;scroll-snap-align:start}'

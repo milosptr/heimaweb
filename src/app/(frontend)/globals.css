@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Repro';
+  src:
+    url('/fonts/ABCRepro-Regular-Trial.woff') format('woff2'),
+    url('/fonts/ABCRepro-Regular-Trial.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Repro';
+  src:
+    url('/fonts/ABCRepro-Bold-Trial.woff') format('woff2'),
+    url('/fonts/ABCRepro-Bold-Trial.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Repro';
+  src:
+    url('/fonts/ABCRepro-Medium-Trial.woff') format('woff2'),
+    url('/fonts/ABCRepro-Medium-Trial.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
 @layer base {
   h1,
   h2,
@@ -14,20 +41,22 @@
   }
 
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    font-family: 'Repro', sans-serif;
+    font-size: 18px;
+    --background: 37, 32%, 92%;
+    --foreground: 224, 16%, 14%;
 
-    --card: 240 5% 96%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 33, 55%, 90%;
+    --card-foreground: 224, 16%, 14%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 145, 52%, 39%;
+    --primary-light: 145, 52%, 49%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 40, 93%, 68%;
+    --secondary-foreground: 40, 93%, 68%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -50,20 +79,21 @@
   }
 
   [data-theme='dark'] {
-    --background: 0 0% 0%;
-    --foreground: 210 40% 98%;
+    font-family: 'Repro', sans-serif;
+    font-size: 18px;
+    --background: 37, 32%, 92%;
+    --foreground: 224, 16%, 14%;
 
-    --card: 0 0% 4%;
-    --card-foreground: 210 40% 98%;
+    --card: 33, 55%, 90%;
+    --card-foreground: 224, 16%, 14%;
 
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 145, 52%, 39%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 40, 93%, 68%;
+    --secondary-foreground: 40, 93%, 68%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -100,4 +130,186 @@ html {
 html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
+}
+
+h1,
+h2 {
+  font-size: 50px;
+  line-height: 60px;
+  font-weight: bold;
+}
+
+h3,
+h3 * {
+  font-size: 33px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+h4,
+h4 * {
+  font-size: 27px;
+  line-height: 32px;
+  font-weight: bold;
+}
+h5,
+h5 * {
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: bold;
+}
+h6,
+h6 * {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.description-text {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+}
+
+html.home {
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+  scroll-snap-type: y mandatory; /* Enables vertical snapping */
+  overflow-y: scroll; /* Ensures vertical scrolling is enabled */
+}
+
+.home .h-screen {
+  height: 100vh; /* Already defined in your case */
+  scroll-snap-align: start; /* Tells the browser where to snap */
+}
+
+.button {
+  @apply bg-primary text-white;
+  border-radius: 13px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 27px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: hsl(var(--primary-light));
+}
+
+.RichText h1,
+.RichText h2,
+.RichText h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.RichText h4,
+.RichText h5,
+.RichText h6 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.RichText p {
+  margin-bottom: 1rem;
+}
+
+.RichText hr {
+  margin: 2rem 0;
+  border-color: #c6c7c9;
+}
+
+.RichText ul,
+.RichText ol {
+  margin-bottom: 1rem;
+  padding-left: 1.2rem;
+}
+
+.RichText ul li,
+.RichText ol li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+
+p a {
+  color: hsl(var(--primary));
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+.RichText table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  display: block;
+  overflow: scroll;
+}
+
+.RichText th,
+.RichText td {
+  padding: 0.5rem;
+  border: 1px solid #c6c7c9;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  :root,
+  :root[data-theme='dark'] {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2 {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: bold;
+  }
+
+  .blog h2 {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bold;
+  }
+
+  h3,
+  h3 * {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: bold;
+  }
+
+  h4,
+  h4 * {
+    font-size: 27px;
+    line-height: 32px;
+    font-weight: bold;
+  }
+  h5,
+  h5 * {
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: bold;
+  }
+  h6,
+  h6 * {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+
+  .description-text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+}
+
+/* Mobile */
+@media (max-width: 375px) {
 }

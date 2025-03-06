@@ -45,7 +45,7 @@ export default buildConfig({
         {
           label: 'Tablet',
           name: 'tablet',
-          width: 768,
+          width: 1024,
           height: 1024,
         },
         {
@@ -57,7 +57,6 @@ export default buildConfig({
       ],
     },
   },
-  // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
   db: vercelPostgresAdapter({
     pool: {

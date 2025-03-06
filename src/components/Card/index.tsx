@@ -32,7 +32,7 @@ export const Card: React.FC<{
   return (
     <article
       className={cn(
-        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer',
+        'border border-border rounded-md overflow-hidden bg-card hover:cursor-pointer group',
         className,
       )}
       ref={card.ref}
@@ -71,7 +71,11 @@ export const Card: React.FC<{
         {titleToUse && (
           <div className="prose">
             <h3>
-              <Link className="not-prose" href={href} ref={link.ref}>
+              <Link
+                className="not-prose duration-300 ease-linear group-hover:text-primary"
+                href={href}
+                ref={link.ref}
+              >
                 {titleToUse}
               </Link>
             </h3>

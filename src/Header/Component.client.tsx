@@ -7,11 +7,16 @@ import React, { useEffect, useState } from 'react'
 import type { Header } from '@/payload-types'
 
 import { Logo } from '@/components/Logo/Logo'
-import { HeaderNav } from './Nav'
 
 interface HeaderClientProps {
   data: Header
+  currentPath?: string
 }
+
+type Flatten<T> = T extends any[] ? T[number] : T
+type FlattenHeaderNavItems = Flatten<Header['navItems']>
+type HeaderNavItem = NonNullable<FlattenHeaderNavItems>
+type HeaderLink = HeaderNavItem['link']
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   /* Storing the value in a useState to avoid hydration errors */
@@ -29,13 +34,52 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme])
 
+  const getLinkUrl = (link: HeaderLink) => {
+    if (link.url) return link.url
+    if (link.reference?.value && typeof link.reference.value !== 'number') {
+      const { slug } = link.reference.value
+      return `/${slug}`
+    }
+
+    return '/'
+  }
+
+  const isActive = (link: string) => {
+    if (pathname.includes(link)) {
+      return 'text-primary'
+    }
+    return ''
+  }
+
   return (
-    <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
-        <Link href="/">
-          <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-        </Link>
-        <HeaderNav data={data} />
+    <header
+      className="bg-background fixed top-0 w-full z-20"
+      {...(theme ? { 'data-theme': theme } : {})}
+    >
+      <div className="container mx-auto">
+        <div className="pt-4 pb-4 flex justify-between">
+          <Link href="/">
+            <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+          </Link>
+          <nav className="flex items-center gap-4 sm:gap-24">
+            {data?.navItems?.map((item) => (
+              <Link
+                href={getLinkUrl(item.link)}
+                key={item.id}
+                className={[
+                  'text-[18px] sm:text-[20px] font-medium hover:text-primary ease-linear duration-200',
+                  isActive(getLinkUrl(item.link)),
+                ].join(' ')}
+                target={item.link.newTab ? '_blank' : undefined}
+              >
+                {item.link.label}
+              </Link>
+            ))}
+            <Link href="/" className="button hidden sm:display-block">
+              Get Heima
+            </Link>
+          </nav>
+        </div>
       </div>
     </header>
   )
