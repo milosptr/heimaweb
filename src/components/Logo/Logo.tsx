@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const Logo = (props: Props) => {
-  const { loading: loadingFromProps, priority: priorityFromProps, className } = props
+  const { loading: loadingFromProps, priority: priorityFromProps } = props
   const { variant = 'green' } = props
 
   const loading = loadingFromProps || 'lazy'
@@ -23,7 +23,7 @@ export const Logo = (props: Props) => {
       loading={loading}
       fetchPriority={priority}
       decoding="async"
-      className={clsx('max-w-[9.375rem] h-[30px] sm:h-[40px]', className)}
+      className={clsx('max-w-[9.375rem] h-[30px] sm:h-[40px]')}
       src={`/heima_${variant}.svg`}
     />
   )

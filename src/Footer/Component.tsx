@@ -21,7 +21,13 @@ export async function Footer() {
       {!!image && (
         <Fade triggerOnce delay={300} fraction={0.5}>
           <div className="flex justify-center mb-10">
-            <Image src={image.url!} alt={image.alt!} className="h-[40vh] sm:h-[60vh]" />
+            <Image
+              src={image.url!}
+              alt={image.alt!}
+              width={200}
+              height={200}
+              className="w-full max-h-[40vh] sm:max-h-[55vh]"
+            />
           </div>
         </Fade>
       )}

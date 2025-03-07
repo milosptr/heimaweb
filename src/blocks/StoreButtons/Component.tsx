@@ -16,7 +16,7 @@ export const StoreButtonsBlock: React.FC<SBB> = (props) => {
           alt={appStore.alt}
           width={180}
           height={100}
-          className="w-[100px] lg:w-[150px]"
+          className="w-[120px] lg:w-[150px]"
         />
       </Link>
       <Link href={GooglePlayLink} target="_blank" className="block">
@@ -25,7 +25,7 @@ export const StoreButtonsBlock: React.FC<SBB> = (props) => {
           alt={googlePlay.alt}
           width={180}
           height={100}
-          className="w-[100px] lg:w-[150px]"
+          className="w-[120px] lg:w-[150px]"
         />
       </Link>
     </div>

@@ -132,42 +132,55 @@ html[data-theme='light'] {
   opacity: initial;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 h1,
 h2 {
-  font-size: 50px;
-  line-height: 60px;
+  font-size: 2.3rem;
+  line-height: 2.8rem;
+  font-weight: bold;
+}
+
+.blog h1,
+.blog h2 {
+  font-size: 2rem;
+  line-height: 2.4rem;
   font-weight: bold;
 }
 
 h3,
 h3 * {
-  font-size: 33px;
-  line-height: 40px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   font-weight: bold;
 }
 
 h4,
 h4 * {
-  font-size: 27px;
-  line-height: 32px;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
   font-weight: bold;
 }
 h5,
 h5 * {
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
   font-weight: bold;
 }
 h6,
 h6 * {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
   font-weight: bold;
 }
 
 .description-text {
-  font-size: 28px;
-  line-height: 36px;
+  font-size: 1.3rem;
+  line-height: 1.9rem;
   font-weight: 400;
 }
 
@@ -256,8 +269,10 @@ p a:hover {
 /* Tablets */
 @media (max-width: 1024px) {
   :root,
-  :root[data-theme='dark'] {
-    font-size: 16px;
+  :root[data-theme='dark'],
+  html,
+  body {
+    font-size: 14px;
   }
 
   .container {
@@ -311,5 +326,11 @@ p a:hover {
 }
 
 /* Mobile */
-@media (max-width: 375px) {
+@media (max-width: 450px) {
+  h1,
+  h2 {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: bold;
+  }
 }

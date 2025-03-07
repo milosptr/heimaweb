@@ -61,7 +61,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       <div className="container mx-auto">
         <div className="pt-4 pb-4 flex justify-between">
           <Link href="/">
-            <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+            <Logo loading="eager" priority="high" />
           </Link>
           <nav className="flex items-center gap-4 sm:gap-24">
             {data?.navItems?.map((item) => (

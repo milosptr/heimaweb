@@ -31,7 +31,7 @@ export default async function Page() {
     <div className="py-4 sm:py-16">
       <PageClient />
       <div className="container mb-10">
-        <div className="prose dark:prose-invert max-w-none">
+        <div className="max-w-none">
           <h1 className="text-foreground font-bold">Blog posts</h1>
         </div>
       </div>

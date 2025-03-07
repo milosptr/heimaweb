@@ -69,10 +69,10 @@ export const Card: React.FC<{
           </div>
         )}
         {titleToUse && (
-          <div className="prose">
+          <div className="">
             <h3>
               <Link
-                className="not-prose duration-300 ease-linear group-hover:text-primary"
+                className="duration-300 ease-linear group-hover:text-primary"
                 href={href}
                 ref={link.ref}
               >
