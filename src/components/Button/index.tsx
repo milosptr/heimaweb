@@ -16,12 +16,6 @@ export type Props = {
   onClick?: () => void
 }
 
-const elements = {
-  a: 'a',
-  button: 'button',
-  link: Link,
-}
-
 export const Button: React.FC<Props> = ({
   appearance,
   className: classNameFromProps,
