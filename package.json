@@ -1,7 +1,7 @@
 {
   "name": "heimaweb",
   "version": "1.0.0",
-  "description": "Website template for Payload",
+  "description": "Heima is Where the Heart is",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -21,6 +21,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@payloadcms/db-vercel-postgres": "latest",
+    "@payloadcms/email-resend": "^3.27.0",
     "@payloadcms/live-preview-react": "latest",
     "@payloadcms/next": "latest",
     "@payloadcms/payload-cloud": "latest",
@@ -36,6 +37,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "@react-email/components": "0.0.33",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
@@ -53,6 +55,7 @@
     "react-hook-form": "7.45.4",
     "react-markdown": "^10.0.1",
     "remark-gfm": "^4.0.1",
+    "resend": "^4.1.2",
     "sharp": "0.32.6",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
@@ -70,6 +73,7 @@
     "eslint-config-next": "15.2.0",
     "postcss": "^8.4.38",
     "prettier": "^3.4.2",
+    "react-email": "3.0.7",
     "tailwindcss": "^3.4.3",
     "typescript": "5.7.3"
   },

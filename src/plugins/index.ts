@@ -9,9 +9,12 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
+import { titleMetadata } from '@/utilities/metadata'
+import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
+import { lexicalEditor, FixedToolbarFeature, HeadingFeature } from '@payloadcms/richtext-lexical'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+  return doc?.title ? `${doc.title} | ${titleMetadata}` : titleMetadata
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
@@ -60,5 +63,31 @@ export const plugins: Plugin[] = [
     },
     // Token provided by Vercel once Blob storage is added to your Vercel project
     token: process.env.BLOB_READ_WRITE_TOKEN,
+  }),
+  formBuilderPlugin({
+    fields: {
+      payment: false,
+    },
+    formOverrides: {
+      fields: ({ defaultFields }) => {
+        return defaultFields.map((field) => {
+          if ('name' in field && field.name === 'confirmationMessage') {
+            return {
+              ...field,
+              editor: lexicalEditor({
+                features: ({ rootFeatures }) => {
+                  return [
+                    ...rootFeatures,
+                    FixedToolbarFeature(),
+                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+                  ]
+                },
+              }),
+            }
+          }
+          return field
+        })
+      },
+    },
   }),
 ]

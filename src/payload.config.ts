@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
+import { resendAdapter } from '@payloadcms/email-resend'
 
 import sharp from 'sharp' // sharp-import
 import path from 'path'
@@ -21,6 +22,11 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  email: resendAdapter({
+    defaultFromAddress: 'hello@getheima.com',
+    apiKey: process.env.RESEND_API_KEY || '',
+    defaultFromName: 'Heima Website',
+  }),
   admin: {
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
@@ -29,6 +35,26 @@ export default buildConfig({
       // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
       // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
       beforeDashboard: ['@/components/BeforeDashboard'],
+      graphics: {
+        Icon: '@/components/GraphicsIcon',
+        Logo: '@/components/GraphicsLogo',
+      },
+    },
+    meta: {
+      title: 'Heima Software ehf.',
+      titleSuffix: ' | Admin Panel',
+      description: 'Welcome to the Heima Software ehf. admin panel',
+      icons: [
+        {
+          type: 'favicon',
+          url: '/favicon.ico',
+        },
+        {
+          rel: 'icon',
+          type: 'image/svg',
+          url: '/favicon.svg',
+        },
+      ],
     },
     importMap: {
       baseDir: path.resolve(dirname),

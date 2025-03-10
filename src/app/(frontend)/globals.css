@@ -53,7 +53,8 @@
     --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 145, 52%, 39%;
-    --primary-light: 145, 52%, 49%;
+    --primary-background: 157, 77%, 24%;
+    --primary-foreground: 145, 52%, 49%;
 
     --secondary: 40, 93%, 68%;
     --secondary-foreground: 40, 93%, 68%;
@@ -75,7 +76,7 @@
 
     --success: 196 52% 74%;
     --warning: 34 89% 85%;
-    --error: 10 100% 86%;
+    --error: 0, 84%, 60%;
   }
 
   [data-theme='dark'] {
@@ -91,6 +92,8 @@
     --popover-foreground: 210 40% 98%;
 
     --primary: 145, 52%, 39%;
+    --primary-background: 157, 77%, 24%;
+    --primary-foreground: 145, 52%, 49%;
 
     --secondary: 40, 93%, 68%;
     --secondary-foreground: 40, 93%, 68%;
@@ -110,7 +113,7 @@
 
     --success: 196 100% 14%;
     --warning: 34 51% 25%;
-    --error: 10 39% 43%;
+    --error: 0, 84%, 60%;
   }
 }
 
@@ -136,6 +139,10 @@ html[data-theme='light'] {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+.required {
+  color: hsl(var(--error));
 }
 
 h1,
@@ -178,7 +185,9 @@ h6 * {
   font-weight: bold;
 }
 
-.description-text {
+.description-text,
+.payload-richtext p,
+.payload-richtext p * {
   font-size: 1.3rem;
   line-height: 1.9rem;
   font-weight: 400;
@@ -200,13 +209,13 @@ html.home {
   border-radius: 13px;
   font-size: 20px;
   font-weight: 500;
-  padding: 15px 27px;
+  padding: 12px 27px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
 
 .button:hover {
-  background-color: hsl(var(--primary-light));
+  background-color: hsl(var(--primary-background));
 }
 
 .RichText h1,
@@ -318,7 +327,9 @@ p a:hover {
     font-weight: bold;
   }
 
-  .description-text {
+  .description-text,
+  .payload-richtext p,
+  .payload-richtext p * {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;

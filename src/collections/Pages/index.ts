@@ -5,6 +5,7 @@ import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { Content } from '../../blocks/Content/config'
 import { ContentHomepage } from '../../blocks/ContentHomepage/config'
 import { Markdown } from '../../blocks/Markdown/config'
+import { StoreCards } from '../../blocks/StoreCards/config'
 import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
@@ -21,6 +22,8 @@ import {
 import { StoreButtons } from '@/blocks/StoreButtons/config'
 import { iFrame } from '@/blocks/iFrame/config'
 import { PremiumBox } from '@/blocks/PremiumBox/config'
+import { SupporterLogos } from '@/blocks/SupporterLogos/config'
+import { FormBlock } from '../../blocks/Form/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -76,7 +79,17 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [Content, ContentHomepage, Markdown, iFrame, PremiumBox, StoreButtons],
+              blocks: [
+                Content,
+                ContentHomepage,
+                Markdown,
+                iFrame,
+                PremiumBox,
+                StoreButtons,
+                StoreCards,
+                SupporterLogos,
+                FormBlock,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,

@@ -8,6 +8,9 @@ import { StoreButtonsBlock } from './StoreButtons/Component'
 import { MarkdownBlock } from './Markdown/Component'
 import { IFrameBlock } from './iFrame/Component'
 import { PremiumBoxBlock } from './PremiumBox/Component'
+import { StoreCardsBlock } from './StoreCards/Component'
+import { SupporterLogosBlock } from './SupporterLogos/Component'
+import { FormBlock } from '@/blocks/Form/Component'
 
 const blockComponents = {
   content: ContentBlock,
@@ -16,6 +19,9 @@ const blockComponents = {
   iframe: IFrameBlock,
   storeButtons: StoreButtonsBlock,
   premiumBox: PremiumBoxBlock,
+  storeCards: StoreCardsBlock,
+  supporterLogos: SupporterLogosBlock,
+  formBlock: FormBlock,
 }
 
 export const RenderBlocks: React.FC<{

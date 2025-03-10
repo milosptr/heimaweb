@@ -77,7 +77,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
                 {item.link.label}
               </Link>
             ))}
-            <Link href="/" className="button hidden sm:display-block">
+            <Link href="https://bit.ly/getheimafromwebsite" className="button hidden sm:block">
               Get Heima
             </Link>
           </nav>
