@@ -46,13 +46,13 @@ export const FeedbackTemplate = ({ data }: EmailTemplateProps) => {
           </Section>
           <Section style={{ paddingBottom: '20px' }}>
             <Row>
-              <Text style={heading}>Here's what {name ?? email} wrote</Text>
+              <Text style={heading}>Here&apos;s what {name ?? email} wrote</Text>
               <Text style={review}>
                 {subject}: {message}
               </Text>
               <Text style={paragraph}>
-                If you'd like to respond to this review, you can do so by replying to this {email}{' '}
-                email.
+                If you&apos;d like to respond to this review, you can do so by replying to this{' '}
+                {email} email.
               </Text>
             </Row>
           </Section>
