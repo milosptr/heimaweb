@@ -59,8 +59,8 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       {...(theme ? { 'data-theme': theme } : {})}
     >
       <div className="container mx-auto">
-        <div className="pt-4 pb-4 flex justify-between">
-          <Link href="/">
+        <div className="pt-6 pb-6 flex justify-between">
+          <Link href="/" className="flex items-center">
             <Logo loading="eager" priority="high" />
           </Link>
           <nav className="flex items-center gap-4 sm:gap-24">

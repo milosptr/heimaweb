@@ -14,15 +14,15 @@ export const formSubmissionSend = async (formID: string | undefined, dataToSend:
   })
 }
 
-export const sendSlackEmail = async (data: EmailDataType[]) => {
-  const subject =
-    data?.find((item) => item['field'] === 'subject')?.value || 'Feedback form from Heima website'
+export const sendUserEmail = async (data: EmailDataType[]) => {
+  const email = data?.find((item) => item['field'] === 'email')?.value || ''
 
   const body = {
-    from: 'Heima Feedback <onboarding@resend.dev>',
-    to: ['feedback-website-aaaaps6lhyyrmm6o7apmlkdx6e@heima-global.slack.com'],
-    subject: subject,
+    from: 'Heima Feedback <no-reply@getheima.com>',
+    to: [email],
+    subject: 'Thank you for your feedback',
     data: data,
+    userFeedback: true,
   }
 
   return await fetch(`/api/send`, {
@@ -37,10 +37,15 @@ export const sendSlackEmail = async (data: EmailDataType[]) => {
 export const sendOfficeEmail = async (data: EmailDataType[]) => {
   const subject =
     data?.find((item) => item['field'] === 'subject')?.value || 'Feedback form from Heima website'
+  const name = data?.find((item) => item['field'] === 'name')?.value || 'Heima Feedback'
+  const from = data?.find((item) => item['field'] === 'email')?.value || 'hello@getheima.com'
 
   const body = {
-    from: 'Heima Feedback <onboarding@resend.dev>',
-    to: ['milos@getheima.com'],
+    from: `${name} <${from}>`,
+    to: [
+      'hello@getheima.com',
+      'feedback-website-aaaaps6lhyyrmm6o7apmlkdx6e@heima-global.slack.com',
+    ],
     subject: subject,
     data: data,
   }
@@ -55,7 +60,7 @@ export const sendOfficeEmail = async (data: EmailDataType[]) => {
 }
 
 export const sendEmail = async (formID: string | undefined, data: EmailDataType[]) => {
-  await sendSlackEmail(data)
   await sendOfficeEmail(data)
+  // await sendUserEmail(data)
   return await formSubmissionSend(formID, data)
 }

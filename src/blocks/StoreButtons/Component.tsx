@@ -9,14 +9,14 @@ export const StoreButtonsBlock: React.FC<SBB> = (props) => {
   const googlePlay = GooglePlayImage as { url: string; alt: string }
 
   return (
-    <div className="flex gap-6 lg:gap-10 mt-6 lg:mt-10">
+    <div className="flex justify-center lg:justify-start gap-6 lg:gap-10 mt-6 lg:mt-10">
       <Link href={AppleStoreLink} target="_blank" className="block">
         <Image
           src={appStore.url}
           alt={appStore.alt}
           width={180}
           height={100}
-          className="w-[120px] lg:w-[150px]"
+          className="w-[130px] lg:w-[150px]"
         />
       </Link>
       <Link href={GooglePlayLink} target="_blank" className="block">
@@ -25,7 +25,7 @@ export const StoreButtonsBlock: React.FC<SBB> = (props) => {
           alt={googlePlay.alt}
           width={180}
           height={100}
-          className="w-[120px] lg:w-[150px]"
+          className="w-[130px] lg:w-[150px]"
         />
       </Link>
     </div>

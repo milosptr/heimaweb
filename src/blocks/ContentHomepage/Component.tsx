@@ -9,7 +9,7 @@ export const HomeContentBlock: React.FC<HomeContentBlockProps> = (props) => {
 
   return (
     <div className="container">
-      <Fade delay={300} fraction={0.5} triggerOnce>
+      <Fade delay={100} fraction={0.5} triggerOnce>
         {sections &&
           sections.length > 0 &&
           sections.map((section, index) => {

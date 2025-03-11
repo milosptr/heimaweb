@@ -20,14 +20,39 @@ export async function Footer() {
     <section className="h-screen flex flex-col justify-end">
       {!!image && (
         <Fade triggerOnce delay={300} fraction={0.5}>
-          <div className="flex justify-center mb-10">
-            <Image
-              src={image.url!}
-              alt={image.alt!}
-              width={200}
-              height={200}
-              className="w-full max-h-[40vh] sm:max-h-[55vh]"
-            />
+          <div className="container">
+            <div className="grid grid-cols-3 mb-12">
+              <div className="col-span-3 text-center mb-6 sm:mb-10">
+                <h2>Our Supporters</h2>
+              </div>
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/supporters/kvika.svg"
+                  alt="kvika"
+                  width={150}
+                  height={150}
+                  className="w-[110px] sm:w-[150px]"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/supporters/technology.avif"
+                  alt="technology department"
+                  width={150}
+                  height={150}
+                  className="w-[110px] sm:w-[150px]"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/supporters/university_of_iceland.svg"
+                  alt="university_of_iceland"
+                  width={150}
+                  height={150}
+                  className="w-[110px] sm:w-[150px]"
+                />
+              </div>
+            </div>
           </div>
         </Fade>
       )}
@@ -42,7 +67,7 @@ export async function Footer() {
                 {navItems.map(({ link }, i) => {
                   return (
                     <CMSLink
-                      className="text-white text-secondary hover:underline text-xl"
+                      className="text-white text-secondary underline text-xl"
                       key={i}
                       {...link}
                     />
@@ -64,13 +89,13 @@ export async function Footer() {
                 ))}
               </div>
               <Link
-                className="flex items-center text-secondary text-xl mb-3 hover:underline"
+                className="flex items-center text-secondary text-xl mb-3 underline"
                 href="mailto:hello@getheima.com"
               >
                 hello@getheima.com
               </Link>
-              <p>{new Date().getFullYear()} &copy; HEIMA Software ehf.</p>
-              <p>All rights reserved.</p>
+              <p className="">{new Date().getFullYear()} &copy; HEIMA Software ehf.</p>
+              <p className="">All rights reserved.</p>
             </div>
           </div>
         </div>

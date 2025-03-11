@@ -19,19 +19,19 @@ export const RenderHero: React.FC<Page['hero']> = (props) => {
     <div className="container h-screen flex items-center justify-center snap-center snap-mandatory">
       <Fade triggerOnce delay={500} fraction={0.5}>
         <div className="grid grid-cols-1 md:grid-cols-2 items-end gap-4">
-          <div className="order-2 sm:order-1 lg:pb-5">
+          <div className="order-2 sm:order-1 lg:pb-5 text-center lg:text-left">
             <h1>{heading}</h1>
-            <p className="description-text mt-4 lg:mt-8">{description}</p>
+            <p className="description-text mt-4 lg:mt-6">{description}</p>
             <div className="relative">
               <RenderBlocks blocks={[...blocks]} />
             </div>
           </div>
-          <div className="flex justify-start sm:justify-end order-1 sm:order-2">
+          <div className="flex justify-center mb-7 lg:mb-0 sm:justify-end order-1 sm:order-2">
             {!!hasImage && (
               <Image
                 src={heroImage.url!}
                 alt={heroImage.alt ?? ''}
-                className="w-[60%] sm:w-[80%] max-h-[80vh]"
+                className="w-[70%] sm:w-[90%] max-h-[80vh]"
                 width={200}
                 height={200}
               />
